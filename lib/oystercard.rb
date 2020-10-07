@@ -27,6 +27,7 @@ class Oystercard
   end
 
   def touch_in
+    raise 'Balance less than £1. Top up!' if min_balance
     @in_journey = true
   end
 
@@ -35,8 +36,7 @@ class Oystercard
   end
 
   def min_balance
-    raise 'Balance less than £1. Top up!' if @balance < @min_limit
+    @balance < @min_limit
   end
-
 
 end
