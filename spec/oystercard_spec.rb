@@ -33,10 +33,14 @@ describe Oystercard do
   it "can touch in" do
     subject.top_up(20)
     subject.touch_in
-    expect(subject).to be_in_journey
+    expect(subject.in_journey?).to eq true
   end
 
   it "checks that the balance is at least £1" do
     expect { subject.touch_in }.to raise_error 'Balance less than £1. Top up!'
+  end
+
+  it "checks that a charge is made on touch out" do
+    expect { subject.touch_out }.to change{ subject.balance }.by(-1)
   end
 end
