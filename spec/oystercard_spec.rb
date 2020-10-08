@@ -64,4 +64,12 @@ describe Oystercard do
     expect(subject.exit_station).to eq station
   end
 
+  it 'checks that touching in and out creates one journey' do
+    subject.top_up(10)
+    subject.touch_in(station)
+    subject.touch_out(station)
+    expect(subject.journey).to eq entry_station: station, exit_station: station
+  end
+
+
 end
