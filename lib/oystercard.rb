@@ -10,7 +10,6 @@ class Oystercard
     @balance = balance
     @maximum_limit = maximum_limit
     @min_limit = min_limit
-    @in_journey = false
     @entry_station = nil
   end
 
@@ -27,12 +26,11 @@ class Oystercard
   def touch_in(station)
     raise 'Balance less than £1. Top up!' if min_balance
     @entry_station = station
-    @in_journey = true
   end
 
   def touch_out
     deduct(1)
-    @in_journey
+    @entry_station = nil
   end
 
   def min_balance

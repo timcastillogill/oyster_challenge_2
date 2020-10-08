@@ -46,6 +46,11 @@ describe Oystercard do
     expect(subject.in_journey?).to eq true
   end
 
+  it 'stores the entry station on touch_in' do
+    subject.top_up(50)
+    subject.touch_in(station)
+    expect(subject.entry_station).to eq station
+  end
 
 
 end
