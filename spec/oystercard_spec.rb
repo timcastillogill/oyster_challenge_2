@@ -24,7 +24,7 @@ describe Oystercard do
   it 'is initially not in a journey' do
     expect(subject).not_to be_in_journey
   end
-  
+
   it "can touch in" do
     subject.top_up(20)
     subject.touch_in(station)
@@ -36,7 +36,7 @@ describe Oystercard do
   end
 
   it 'updates in_journey to false' do
-      subject.touch_out
+      subject.touch_out(station)
       expect(subject.in_journey?).to be false
     end
 
@@ -52,5 +52,16 @@ describe Oystercard do
     expect(subject.entry_station).to eq station
   end
 
+  it 'checks if card has an empty list of journey' do
+    expect(subject.journeys).to eq []
+  end
+
+  it 'checks that touching in and out creates one journey' do
+    subject.top_up(10)
+    subject.touch_in(station)
+    expect(subject.entry_station).to eq station
+    subject.touch_out(station)
+    expect(subject.exit_station).to eq station
+  end
 
 end
