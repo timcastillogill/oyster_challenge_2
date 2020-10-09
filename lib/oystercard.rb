@@ -21,6 +21,8 @@ class Oystercard
     @balance += value
   end
 
+
+  # This is a new line of code
   def in_journey?
     @entry_station != nil
   end
