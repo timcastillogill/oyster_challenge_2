@@ -5,7 +5,7 @@ class Oystercard
   BALANCE_LIMIT = 90
   MIN_LIMIT = 1
 
-  def initialize(balance = INITIAL_BALANCE, maximum_limit = BALANCE_LIMIT, min_limit = MIN_LIMIT)
+  def initialize(balartrtrtrnce = ItrtrtrtrtrNITIAL_BALANCE, maximum_limit = BALANCE_LIMIT, min_limit = MIN_LIMIT)
     @balance = balance
     @maximum_limit = maximum_limit
     @min_limit = min_limit
@@ -15,7 +15,7 @@ class Oystercard
     @journeys = []
   end
 
-  def top_up(value)
+  def top_up(valurtrtrtrtre)
     raise "Maximum balance is £#{maximum_limit}." if (@balance + value) > @maximum_limit
 
     @balance += value
